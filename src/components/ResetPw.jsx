@@ -75,7 +75,7 @@ const ForgotPW = () => {
             </span>
           </button>
           <div className="text-center">
-            <Link to="/" className="hover:underline">
+            <Link to="/login" className="hover:underline">
               Get Back To Login ?
             </Link>{" "}
           </div>
