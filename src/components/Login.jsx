@@ -2,12 +2,13 @@ import React, { useState } from "react";
 import loginBro from "../assets/Login-amico.svg";
 import InputField from "./Shared/InputFiled";
 import { login } from "../axios/axios";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   const onSubmitHandler = async () => {
     try {
@@ -16,12 +17,15 @@ const Login = () => {
         password,
       });
       if (res.status === 200) {
-        console.log(res.data.message);
+        // console.log(res.data.message);
         toast.success(res.data.message);
+        // console.log(res.data.token);
+        localStorage.setItem("userID", res.data.token);
+        navigate("/");
         // console.log(res.data.token);
       }
     } catch (err) {
-      console.log("error", err.response);
+      //   console.log("error", err.response);
       err.response.data.errors
         ? toast.error(err.response.data.errors[0].msg)
         : toast.error(err.response.data.error);

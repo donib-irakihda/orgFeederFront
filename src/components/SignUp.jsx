@@ -104,7 +104,7 @@ const SignUp = () => {
           </button>
           <p className="flex justify-center ">
             Already have an account?<span> </span>
-            <Link to="/" className="hover:underline text-success2">
+            <Link to="/login" className="hover:underline text-success2">
               Log in
             </Link>{" "}
           </p>
