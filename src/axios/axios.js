@@ -19,5 +19,17 @@ export const login = async (data) =>
       "Content-type": "application/json",
     },
   });
+export const forgotPW = async (data) =>
+  api.post("user/forgot-password", data, {
+    headers: {
+      "Content-type": "application/json",
+    },
+  });
+export const resetPW = async (data) =>
+  api.post("user/reset-password", data, {
+    headers: {
+      "Content-type": "application/json",
+    },
+  });
 
 export default api;

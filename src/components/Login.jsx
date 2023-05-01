@@ -49,6 +49,24 @@ const Login = () => {
               type="password"
               onChange={(e) => setPassword(e.target.value)}
             />{" "}
+            <div className="flex flex-row justify-between">
+              <div>
+                {" "}
+                <input
+                  type="checkbox"
+                  id="remem"
+                  name="remember_me"
+                  value="true"
+                />
+                <label for="remem"> Remember me ?</label>
+              </div>
+
+              <p className="font-semibold">
+                <Link to="/forgotPW" className="hover:underline text-success">
+                  Forgot Password ?
+                </Link>{" "}
+              </p>
+            </div>
             <button
               className="bg-success2 border rounded-md w-full px-3 py-2 mt-5"
               onClick={onSubmitHandler}
