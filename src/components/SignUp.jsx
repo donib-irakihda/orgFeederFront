@@ -5,6 +5,7 @@ import { signup } from "../axios/axios";
 
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Link, useNavigate } from "react-router-dom";
 
 const SignUp = () => {
   const [fullName, setFullName] = useState("");
@@ -12,11 +13,8 @@ const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [phone, setPhone] = useState("");
-  const [role, setRole] = useState("");
-
-  const onOptionChange = (e) => {
-    setRole(e.target.value);
-  };
+  const [verified, setVerified] = useState(false);
+  const navigate = useNavigate();
 
   const onSubmitHandler = async () => {
     try {
@@ -26,15 +24,17 @@ const SignUp = () => {
         email,
         password,
         phone,
-        role,
       });
       if (res.status === 200) {
         console.log(res.data.message);
         toast.success(res.data.message);
+        setVerified(res.data.user.emailVerified);
+        console.log(verified);
+
         // console.log(res.data.token);
       }
     } catch (err) {
-      console.log("error", err.response);
+      // console.log("error", err);
       err.response.data.errors
         ? toast.error(err.response.data.errors[0].msg)
         : toast.error(err.response.data.Error);
@@ -97,11 +97,17 @@ const SignUp = () => {
             Conditions
           </p>
           <button
-            className="bg-success border rounded-md w-full px-3 py-2"
+            className="bg-success2 border rounded-md w-full px-3 py-2"
             onClick={onSubmitHandler}
           >
             <span className=" font-semibold text-xl text-white">Signup</span>
           </button>
+          <p className="flex justify-center ">
+            Already have an account?<span> </span>
+            <Link to="/" className="hover:underline text-success2">
+              Log in
+            </Link>{" "}
+          </p>
         </div>
       </div>
     </>

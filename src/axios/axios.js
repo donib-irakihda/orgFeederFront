@@ -13,4 +13,11 @@ export const signup = async (data) =>
     },
   });
 
+export const login = async (data) =>
+  api.post("user/login", data, {
+    headers: {
+      "Content-type": "application/json",
+    },
+  });
+
 export default api;
