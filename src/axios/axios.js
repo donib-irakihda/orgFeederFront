@@ -32,4 +32,32 @@ export const resetPW = async (data) =>
     },
   });
 
+export const createOrg = async (data) =>
+  api.post("/organization/create-organization", data, {
+    headers: {
+      "Content-type": "application/json",
+      Authorization: `Bearer ${localStorage.getItem("token")}`,
+    },
+  });
+export const orgByUser = async () =>
+  api.get(
+    `/organization/get-all-organizations-by-user/${localStorage.getItem(
+      "userID"
+    )}`,
+    {
+      headers: {
+        "Content-type": "application/json",
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    }
+  );
+
+export const deleteOrg = async (data) =>
+  api.delete(`/organization/delete-organization`, data, {
+    headers: {
+      "Content-type": "application/json",
+      Authorization: `Bearer ${localStorage.getItem("token")}`,
+    },
+  });
+
 export default api;

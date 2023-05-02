@@ -20,7 +20,9 @@ const Login = () => {
         // console.log(res.data.message);
         toast.success(res.data.message);
         // console.log(res.data.token);
-        localStorage.setItem("userID", res.data.token);
+        localStorage.setItem("token", res.data.token);
+        localStorage.setItem("userID", res.data.user._id);
+
         navigate("/");
         // console.log(res.data.token);
       }
