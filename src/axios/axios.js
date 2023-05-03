@@ -60,4 +60,16 @@ export const deleteOrg = async ({ id }) =>
     },
   });
 
+export const updateOrg = async ({ id, name, website, phone, address }) =>
+  api.patch(
+    `/organization/update-organization/${id}`,
+    { name, website, phone, address },
+    {
+      headers: {
+        "Content-type": "application/json",
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    }
+  );
+
 export default api;
