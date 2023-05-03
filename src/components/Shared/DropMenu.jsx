@@ -2,30 +2,31 @@ import React from "react";
 import dotico from "../../assets/dots.svg";
 import updateico from "../../assets/edit.svg";
 import deleteico from "../../assets/delete.svg";
+import { deleteOrg } from "../../axios/axios";
 
-const DropMenu = () => {
+const DropMenu = ({ setdToggle, setToggle }) => {
   return (
-    <div className="group inline-block">
-      <button>
-        <img src={dotico} alt="dot" />.
-      </button>
-      <div className="absolute hidden border rounded shadow-md pt-1 text-gray-700 text-start group-hover:flex group-hover:flex-col group-hover:z-50">
-        <button
-          className="flex flex-row bg-white  rounded py-2 px-4 hover:bg-gray-400  w-32"
-          href="#"
-        >
-          <img src={updateico} className="w-5" alt="" /> Update
-        </button>
+    <>
+      <div className="dropdown">
+        <label tabIndex={0} className=" m-1">
+          <img src={dotico} alt="dot" />
+        </label>
 
-        <button
-          className=" flex flex-row bg-white   rounded py-2 px-4 hover:bg-gray-400  w-32"
-          href="#"
+        <ul
+          tabIndex={0}
+          className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52 relative"
         >
-          <img src={deleteico} className="w-5" alt="" />
-          Delete
-        </button>
+          {" "}
+          <li>update</li>
+          <li>
+            <a href="#my-modal-2" className="btn">
+              <img src={deleteico} className="w-5" alt="" /> Delete
+            </a>
+          </li>
+          <li></li>
+        </ul>
       </div>
-    </div>
+    </>
   );
 };
 

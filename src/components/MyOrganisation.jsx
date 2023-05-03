@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { orgByUser } from "../axios/axios";
-import actionico from "../assets/dots.svg";
 import DropMenu from "./Shared/DropMenu";
+import { ToastContainer, toast } from "react-toastify";
+import DeleteModal from "./Modals/DeleteModal";
 
 const MyOrganisation = () => {
   const [orgs, setOrgs] = useState([]);
+  const [toggle, setToggle] = useState(false);
+  const [dtoggle, setdToggle] = useState(false);
   useEffect(
     () =>
       async function getOrg() {
@@ -18,11 +21,12 @@ const MyOrganisation = () => {
             : toast.error(err.response.data.error);
         }
       },
-    []
+    [toggle]
   );
 
   return (
     <>
+      <ToastContainer theme="colored" autoClose={3000} />
       <div className="relative overflow-x-auto w-11/12 mx-10">
         <h1 className="text-3xl text-center my-5">MY ORGANIZATION</h1>
         <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
@@ -48,6 +52,7 @@ const MyOrganisation = () => {
           {orgs?.length > 0
             ? orgs.map((org) => (
                 <tbody>
+                  <DeleteModal id={org._id} />
                   <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                     <th
                       scope="row"
@@ -59,7 +64,7 @@ const MyOrganisation = () => {
                     <td className="px-6 py-4">{org.phoneNumber}</td>
                     <td className="px-6 py-4">{org.address}</td>
                     <td className="px-6 py-4 ">
-                      <DropMenu id={org._id} />
+                      <DropMenu setdToggle={setdToggle} setToggle={setToggle} />
                     </td>
                   </tr>
                 </tbody>

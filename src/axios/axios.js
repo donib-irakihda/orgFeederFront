@@ -52,8 +52,8 @@ export const orgByUser = async () =>
     }
   );
 
-export const deleteOrg = async (data) =>
-  api.delete(`/organization/delete-organization`, data, {
+export const deleteOrg = async ({ id }) =>
+  api.delete(`/organization/delete-organization/${id}`, {
     headers: {
       "Content-type": "application/json",
       Authorization: `Bearer ${localStorage.getItem("token")}`,
