@@ -3,13 +3,14 @@ import React from "react";
 import { ToastContainer, toast } from "react-toastify";
 import { deleteOrg } from "../../axios/axios";
 
-const DeleteModal = ({ id }) => {
+const DeleteModal = ({ id, setToggle }) => {
   const onDeleteHandler = async () => {
     try {
       const res = await deleteOrg({ id });
       if (res.status === 200) {
         toast.success(res.data.message);
         console.log("deleted", id);
+        setToggle(true);
       }
     } catch (err) {
       // console.log("error", err.response);

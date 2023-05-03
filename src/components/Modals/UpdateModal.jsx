@@ -3,7 +3,7 @@ import { ToastContainer, toast } from "react-toastify";
 import InputField from "../Shared/InputFiled";
 import { updateOrg } from "../../axios/axios";
 
-const UpdateModal = ({ id }) => {
+const UpdateModal = ({ id, setToggle }) => {
   const [name, setName] = useState("");
   const [website, setWebsite] = useState("");
   const [phone, setPhone] = useState("");
@@ -14,10 +14,11 @@ const UpdateModal = ({ id }) => {
       const res = await updateOrg({ id, name, website, phone, address });
       if (res.status === 200 || 201) {
         toast.success(res.data.message);
+        setToggle(true);
       }
     } catch (err) {
-      //   console.log("error", err);
-      err.response.data.errors
+      console.log("error", err);
+      err.response.data?.errors
         ? toast.error(err.response.data.errors[0].msg)
         : toast.error(err.response.data.error);
     }
