@@ -8,7 +8,6 @@ import UpdateModal from "./Modals/UpdateModal";
 const MyOrganisation = () => {
   const [orgs, setOrgs] = useState([]);
   const [toggle, setToggle] = useState(false);
-  const [dtoggle, setdToggle] = useState(false);
   const [orgId, setOrgId] = useState("");
 
   useEffect(
@@ -17,7 +16,9 @@ const MyOrganisation = () => {
         try {
           const res = await orgByUser();
           setOrgs(res.data.org);
-          console.log(res.data.org);
+          setToggle(false);
+          console.log("first", toggle);
+          // console.log(res.data.org);
         } catch (err) {
           err.response.data.errors
             ? toast.error(err.response.data.errors[0].msg)
@@ -54,12 +55,11 @@ const MyOrganisation = () => {
           </thead>
           {orgs?.length > 0
             ? orgs.map((org, index) => (
-                <tbody>
+                <tbody key={index}>
                   <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                     <th
                       scope="row"
                       className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                      key={index}
                     >
                       {org.name}
                     </th>
@@ -69,7 +69,6 @@ const MyOrganisation = () => {
                     <td className="px-6 py-4 ">
                       <DropMenu
                         org={org}
-                        setdToggle={setdToggle}
                         setToggle={setToggle}
                         setOrgId={setOrgId}
                       />
@@ -79,8 +78,8 @@ const MyOrganisation = () => {
               ))
             : "NO ORGS"}
         </table>
-        <DeleteModal id={orgId} />
-        <UpdateModal id={orgId} />
+        <DeleteModal id={orgId} setToggle={setToggle} />
+        <UpdateModal id={orgId} setToggle={setToggle} />
         {console.log("sdf", orgId)}
       </div>
     </>
