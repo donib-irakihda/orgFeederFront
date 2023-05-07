@@ -20,7 +20,7 @@ const SideNav = () => {
     <>
       <div className="h-screen w-1/5 bg-gray-600 relative">
         <div className="mt-20 flex flex-col gap-10 ">
-          <div>
+          <div className="w-11/12">
             <button
               className="w-full text-white h-auto flex flex-row"
               onClick={() => toogleCmodal()}

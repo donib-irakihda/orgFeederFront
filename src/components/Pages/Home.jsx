@@ -1,22 +1,23 @@
-import React, { useState } from "react";
+import React from "react";
 import SideNav from "../SideNav";
 import Footer from "../Footer";
-import Organisations from "../Organisations";
 import Navbar from "../Navbar";
-import CreateModal from "../Modals/CreateModal";
 import MyOrganisation from "../MyOrganisation";
-import DeleteModal from "../Modals/DeleteModal";
+import { Route, Routes } from "react-router-dom";
+import Board from "./Board";
 
 const Home = () => {
   //   const [modal, setModal] = useState(false);
   return (
     <>
       <Navbar />
-      <div className="flex flex-row bg-slate-50">
+      <div className="flex flex-row bg-white">
         <SideNav />
-        <MyOrganisation />
-        {/* <DeleteModal /> */}
-        {/* <Organisations /> */}
+
+        <Routes>
+          <Route path="/" element={<MyOrganisation />}></Route>
+          <Route path="/board" element={<Board />}></Route>
+        </Routes>
       </div>
 
       <Footer />

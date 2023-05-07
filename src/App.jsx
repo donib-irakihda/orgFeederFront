@@ -7,6 +7,7 @@ import ResetPw from "./components/ResetPw";
 import Home from "./components/Pages/Home";
 import ProtectedRoutes from "./components/protectedroutes/protected-routes";
 import ProtectedLogin from "./components/protectedroutes/protected-login";
+import Board from "./components/Pages/Board";
 
 const App = () => {
   // useEffect(() => {
@@ -24,7 +25,9 @@ const App = () => {
               <Home />
             </ProtectedRoutes>
           }
-        ></Route>
+        >
+          <Route path="/board" element={<Board />}></Route>
+        </Route>
         <Route
           path="/login"
           element={
