@@ -5,22 +5,16 @@ import Navbar from "../Navbar";
 import MyOrganisation from "../MyOrganisation";
 import { Route, Routes } from "react-router-dom";
 import Board from "./Board";
+import PostExplore from "./PostExplore";
+import Dashboard from "../Dashboard";
 
 const Home = () => {
   //   const [modal, setModal] = useState(false);
   return (
     <>
-      <Navbar />
-      <div className="flex flex-row bg-white">
-        <SideNav />
-
-        <Routes>
-          <Route path="/" element={<MyOrganisation />}></Route>
-          <Route path="/board" element={<Board />}></Route>
-        </Routes>
-      </div>
-
-      <Footer />
+      <Dashboard>
+        <MyOrganisation />
+      </Dashboard>
     </>
   );
 };

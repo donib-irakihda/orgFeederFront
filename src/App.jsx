@@ -7,7 +7,9 @@ import ResetPw from "./components/ResetPw";
 import Home from "./components/Pages/Home";
 import ProtectedRoutes from "./components/protectedroutes/protected-routes";
 import ProtectedLogin from "./components/protectedroutes/protected-login";
-import Board from "./components/Pages/Board";
+import BoardFeat from "./components/Pages/Board";
+import PostExplore from "./components/Pages/PostExplore";
+import BoardOP from "./components/Pages/BoardOP";
 
 const App = () => {
   // useEffect(() => {
@@ -25,9 +27,16 @@ const App = () => {
               <Home />
             </ProtectedRoutes>
           }
-        >
-          <Route path="/board" element={<Board />}></Route>
-        </Route>
+        ></Route>
+        <Route
+          path="/board"
+          element={
+            <ProtectedRoutes>
+              <BoardFeat />
+            </ProtectedRoutes>
+          }
+        ></Route>{" "}
+        <Route path="/post" element={<PostExplore />}></Route>
         <Route
           path="/login"
           element={
@@ -36,6 +45,7 @@ const App = () => {
             </ProtectedLogin>
           }
         ></Route>
+        <Route path="/board-list" element={<BoardOP />}></Route>
         <Route path="/signup" element={<SignUp />}></Route>
         <Route path="/forgotPW" element={<ForgotPW />}></Route>
         <Route path="/ResetPassword" element={<ResetPw />}></Route>

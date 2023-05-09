@@ -80,7 +80,6 @@ const MyOrganisation = () => {
         </table>
         <DeleteModal id={orgId} setToggle={setToggle} />
         <UpdateModal id={orgId} setToggle={setToggle} />
-        {console.log("sdf", orgId)}
       </div>
     </>
   );

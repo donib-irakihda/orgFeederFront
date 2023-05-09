@@ -15,7 +15,7 @@ const CreatePost = () => {
       const res = await createPost({
         title,
         email,
-        board: "64537bd5b4ca2a5e575f382a",
+        board: "6459e28c7fff0670827daf60",
         description: desc,
         status,
         priority,

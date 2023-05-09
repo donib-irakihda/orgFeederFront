@@ -18,16 +18,23 @@ const SideNav = () => {
 
   return (
     <>
+      <CreateModal />
       <div className="h-screen w-1/5 bg-gray-600 relative">
         <div className="mt-20 flex flex-col gap-10 ">
           <div className="w-11/12">
-            <button
-              className="w-full text-white h-auto flex flex-row"
-              onClick={() => toogleCmodal()}
-            >
-              <img src={createico} alt="createico" className="w-5 mx-5" />
-              Create Organisation{" "}
-            </button>{" "}
+            <div>
+              {/* The button to open modal */}
+              <label
+                htmlFor="modal"
+                className="btn border-none w-full text-white bg-gray-600 p-0 h-auto flex flex-row"
+              >
+                <a href="#createorg">
+                  <img src={createico} alt="createico" className="w-5 mx-5" />
+                </a>
+                Create Organisation{" "}
+              </label>
+            </div>
+
             {cmodal ? <CreateModal toogleCmodal={toogleCmodal} /> : null}
           </div>
 
@@ -52,7 +59,7 @@ const SideNav = () => {
             </button>{" "}
           </div> */}
           <div>
-            <button className="w-full text-white  h-auto flex flex-row">
+            <button className="btn border-none bg-gray-600 text-white   h-auto flex flex-row">
               <img src={settingico} alt="createico" className="w-5 mx-5" />
               Settings{" "}
             </button>{" "}

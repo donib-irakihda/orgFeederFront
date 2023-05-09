@@ -7,7 +7,7 @@ const Posts = ({
 }) => {
   return (
     <>
-      <div className="flex flex-row w-4/5 justify-between  p-4 bg-white ">
+      <div className="flex flex-row w-full justify-between  p-4 bg-white ">
         <div className="w-10 h-16 bg-[#fcfcfc]  rounded-md mr-4 justify-center">
           {" "}
           <img src={voteico} alt="voteicon" className="" />

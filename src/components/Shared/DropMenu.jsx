@@ -3,9 +3,18 @@ import dotico from "../../assets/dots.svg";
 import updateico from "../../assets/edit.svg";
 import deleteico from "../../assets/delete.svg";
 import { deleteOrg } from "../../axios/axios";
+import { useNavigate } from "react-router-dom";
 
 const DropMenu = ({ setToggle, setOrgId, org }) => {
   // console.log("orgid", org._id);
+  const navigate = useNavigate();
+  const boardHandler = () => {
+    localStorage.setItem("orgid", org._id);
+
+    // console.log("org_id", org._id);
+    navigate("/board-list");
+  };
+
   return (
     <>
       <div className="dropdown">
@@ -21,7 +30,7 @@ const DropMenu = ({ setToggle, setOrgId, org }) => {
           <li onClick={() => setOrgId(org._id)}>
             <a
               href="#updateModal"
-              className="btn w-fit border-none bg-slate-100 hover:bg-orange-300"
+              className="btn w-fit border-none bg-slate-100 hover:bg-success"
             >
               <img src={updateico} className="w-5" alt="" /> Update
             </a>
@@ -29,10 +38,16 @@ const DropMenu = ({ setToggle, setOrgId, org }) => {
           <li onClick={() => setOrgId(org._id)}>
             <a
               href="#deleteModal"
-              className="btn w-fit border-none bg-slate-100 hover:bg-orange-300"
+              className="btn w-fit border-none bg-slate-100 hover:bg-success"
             >
               <img src={deleteico} className="w-5" alt="deleteico" /> Delete
             </a>
+          </li>
+          <li
+            className="btn text-slate-500 border-none bg-slate-100 hover:bg-success"
+            onClick={() => boardHandler()}
+          >
+            Board
           </li>
         </ul>
       </div>

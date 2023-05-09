@@ -40,17 +40,12 @@ export const createOrg = async (data) =>
     },
   });
 export const orgByUser = async () =>
-  api.get(
-    `/organization/get-all-organizations-by-user/${localStorage.getItem(
-      "userID"
-    )}`,
-    {
-      headers: {
-        "Content-type": "application/json",
-        Authorization: `Bearer ${localStorage.getItem("token")}`,
-      },
-    }
-  );
+  api.get(`/organization/get-all-organizations-by-user`, {
+    headers: {
+      "Content-type": "application/json",
+      Authorization: `Bearer ${localStorage.getItem("token")}`,
+    },
+  });
 
 export const deleteOrg = async ({ id }) =>
   api.delete(`/organization/delete-organization/${id}`, {
