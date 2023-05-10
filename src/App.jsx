@@ -36,7 +36,6 @@ const App = () => {
             </ProtectedRoutes>
           }
         ></Route>{" "}
-        <Route path="/post" element={<PostExplore />}></Route>
         <Route
           path="/login"
           element={
@@ -46,6 +45,7 @@ const App = () => {
           }
         ></Route>
         <Route path="/board-list" element={<BoardOP />}></Route>
+        <Route path="/postexplore" element={<PostExplore />}></Route>
         <Route path="/signup" element={<SignUp />}></Route>
         <Route path="/forgotPW" element={<ForgotPW />}></Route>
         <Route path="/ResetPassword" element={<ResetPw />}></Route>

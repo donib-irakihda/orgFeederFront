@@ -9,7 +9,7 @@ const BoardFeat = () => {
   useEffect(() => {
     try {
       return async () => {
-        const res = await getPosts("6459e28c7fff0670827daf60");
+        const res = await getPosts(localStorage.getItem("boardID"));
         if (res.status === 200) {
           console.log("Posts retrive succesfully");
           setPosts(res.data.posts);

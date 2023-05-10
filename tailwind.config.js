@@ -5,8 +5,8 @@ export default {
   theme: {
     extend: {
       colors: {
-        success: "#92e3a9",
-        success2: "#4ad295",
+        success2: "#2ecc71",
+        kadayellow: "#E1AD01",
       },
     },
   },

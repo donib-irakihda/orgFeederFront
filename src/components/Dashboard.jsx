@@ -5,16 +5,12 @@ import Footer from "./Footer";
 
 const Dashboard = ({ children }) => {
   return (
-    <>
+    <div className="min-h-[100vh]">
       <Navbar />
-      <div className="flex flex-row bg-white">
-        <SideNav />
-
-        {children}
-      </div>
+      <div className="flex flex-row bg-white mb-12">{children}</div>
 
       <Footer />
-    </>
+    </div>
   );
 };
 

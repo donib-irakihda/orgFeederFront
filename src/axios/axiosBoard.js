@@ -32,6 +32,14 @@ export const createPost = async (data) =>
   api.post("post/create-post", data, {
     headers: {
       "Content-type": "application/json",
+      Authorization: `Bearer ${localStorage.getItem("token")}`,
+    },
+  });
+
+export const getPostId = async (id) =>
+  api.get(`/post/get-post/${id}`, {
+    headers: {
+      "Content-Type": "application/json",
     },
   });
 
