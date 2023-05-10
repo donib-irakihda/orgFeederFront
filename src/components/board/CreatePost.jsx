@@ -15,14 +15,14 @@ const CreatePost = () => {
       const res = await createPost({
         title,
         email,
-        board: "6459e28c7fff0670827daf60",
+        board: localStorage.getItem("boardID"),
         description: desc,
         status,
         priority,
       });
       if (res.status === 201) {
         toast.success(res.data.message);
-        // console.log(res.data.token);
+        console.log(res.data);
       }
     } catch (err) {
       //   console.log("error", err.response);

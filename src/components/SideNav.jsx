@@ -8,18 +8,16 @@ import CreateModal from "./Modals/CreateModal";
 
 const SideNav = () => {
   const [cmodal, setCmodal] = useState(false);
-  const [umodal, setUmodal] = useState(false);
+
   const toogleCmodal = () => {
     setCmodal((prev) => !prev);
-  };
-  const toogleUmodal = () => {
-    setUmodal((prev) => !prev);
   };
 
   return (
     <>
       <CreateModal />
-      <div className="h-screen w-1/5 bg-gray-600 relative">
+      <div className="h-screen w-1/5 bg-[#3E363F] relative">
+        <h1 className="w-full text-3xl bg-[#E1AD01] text-white">Dashboard</h1>
         <div className="mt-20 flex flex-col gap-10 ">
           <div className="w-11/12">
             <div>
@@ -38,28 +36,8 @@ const SideNav = () => {
             {cmodal ? <CreateModal toogleCmodal={toogleCmodal} /> : null}
           </div>
 
-          {/* <div>
-            <button className="w-full text-white  h-auto flex flex-row">
-              <img src={viewico} alt="createico" className="w-5 mx-5" />
-              View All My Organisation{" "}
-            </button>{" "}
-            {umodal ? <UpdateModal toogleCmodal={toogleUmodal} /> : null}
-          </div> */}
-
-          {/* <div>
-            <button className="w-full text-white  h-auto flex flex-row">
-              <img src={editico} alt="createico" className="w-5 mx-5" />
-              Update Your Organisation{" "}
-            </button>{" "}
-          </div> */}
-          {/* <div>
-            <button className="w-full text-white  h-auto flex flex-row">
-              <img src={deleteico} alt="createico" className="w-5 mx-5" />
-              Delete An Organisation{" "}
-            </button>{" "}
-          </div> */}
           <div>
-            <button className="btn border-none bg-gray-600 text-white   h-auto flex flex-row">
+            <button className="btn border-none bg-g text-white   h-auto flex flex-row">
               <img src={settingico} alt="createico" className="w-5 mx-5" />
               Settings{" "}
             </button>{" "}
