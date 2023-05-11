@@ -42,7 +42,7 @@ const PostExplore = () => {
         post: localStorage.getItem("postID"),
       });
 
-      res ? console.log(res) : "dasd";
+      res ? console.log(res) : "da sssd";
     } catch (error) {
       console.log(error);
     }
