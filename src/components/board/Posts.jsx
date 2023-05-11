@@ -16,7 +16,7 @@ const Posts = ({
   return (
     <>
       <div
-        className="flex flex-row w-full justify-between p-8 hover:scale-105 border rounded-2xl mt-4 shadow-xl"
+        className="flex flex-row w-full justify-between p-8 hover:scale-105 border rounded-2xl mt-4 shadow-md"
         onClick={() => postHandler()}
       >
         <div className="w-10 h-16 bg-[#fcfcfc]  rounded-md mr-4 justify-center">

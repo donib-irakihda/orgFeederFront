@@ -43,4 +43,48 @@ export const getPostId = async (id) =>
     },
   });
 
+export const votePost = async ({ id }) => {
+  const token = localStorage.getItem("token");
+  return api.post(
+    `/post/cast-vote/${id}`,
+    { data: "ram" },
+    {
+      headers: {
+        "Content-type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    }
+  );
+};
+
+// Comments APIS
+
+export const postcomment = async (data) =>
+  api.post(`/comment/create-comment`, data, {
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${localStorage.getItem("token")}`,
+    },
+  });
+
+export const deleteComment = async ({ id }) =>
+  api.delete(`/comment/delete-comment/${id}`, {
+    headers: {
+      "Content-type": "application/json",
+      Authorization: `Bearer ${localStorage.getItem("token")}`,
+    },
+  });
+
+export const patchComment = async ({ id, comment }) =>
+  api.patch(
+    `/comment/update-comment/${id}`,
+    { comment },
+    {
+      headers: {
+        "Content-type": "application/json",
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    }
+  );
+
 export default api;

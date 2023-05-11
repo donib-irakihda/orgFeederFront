@@ -35,27 +35,27 @@ const BoardOP = () => {
       <main className=" mt-5">
         <div className="ml-8">
           {/* The button to open modal */}
-          <label htmlFor="modal" className="btn">
+          <label htmlFor="modal" className="btn mb-4 ml-4">
             <a href="#createboard">Create Board</a>
           </label>{" "}
         </div>{" "}
         <div className="grid grid-cols-3 gap-20 ml-8">
           {boards?.length > 0
             ? boards.map((board, index) => (
-                <div className="card w-96 bg-base-100 shadow-xl">
+                <div className="card w-96 bg-base-100 shadow-md hover:scale-110">
                   <div className="card-body">
                     <h2 className="card-title ">
                       <span className="truncate">{board.name}</span>
                       {board.boardType === "feedback" ? (
-                        <span className="badge bg-kadayellow">
+                        <span className="badge bg-white hover:bg-orange-300 font-normal text-black p-2">
                           {board.boardType}
                         </span>
                       ) : board.boardType === "featureRequest" ? (
-                        <span className="badge bg-kadayellow">
+                        <span className="badge bg-white hover:bg-orange-300 font-normal text-black p-2">
                           {board.boardType}
                         </span>
                       ) : (
-                        <span className="badge bg-kadayellow">
+                        <span className="badge bg-white hover:bg-orange-300 font-normal text-black p-2">
                           {board.boardType}
                         </span>
                       )}
@@ -65,7 +65,7 @@ const BoardOP = () => {
 
                     <div className="card-actions justify-end">
                       <button
-                        className="btn btn-success"
+                        className="p-2 rounded-md text-slate-700 border border-black hover:bg-success hover:border-none"
                         onClick={() => boardHandler(board._id)}
                       >
                         Show More

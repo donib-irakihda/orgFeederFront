@@ -3,6 +3,7 @@ import CreateModal from "./Modals/CreateModal";
 import createico from "../assets/create.svg";
 import settingico from "../assets/icons8-settings.svg";
 import { Link } from "react-router-dom";
+import profileico from "../assets/profileico.svg";
 
 const Navbar = () => {
   const logoutHandler = () => {
@@ -12,7 +13,7 @@ const Navbar = () => {
   return (
     <>
       <CreateModal />
-      <div className="w-full text-center py-5 bg-[#3E363F] flex flex-row justify-between p-5">
+      <div className="w-full text-center py-4 bg-[#3E363F] flex flex-row justify-between px-8">
         <Link className="text-white text-3xl" to="/">
           NAVBAR 🔥
         </Link>
@@ -24,7 +25,7 @@ const Navbar = () => {
               {/* The button to open modal */}
               <label
                 htmlFor="modal"
-                className="btn border-none w-full text-white bg-[#3E363F] p-0 h-auto flex flex-row"
+                className="btn border-none w-full bg-[#3E363F]  text-white mr-6 p-0 h-auto flex flex-row"
               >
                 <a href="#createorg">
                   <img src={createico} alt="createico" className="w-5 mx-5" />
@@ -35,19 +36,22 @@ const Navbar = () => {
           ) : (
             ""
           )}
-          <div className=" mx-5">
-            <button className="btn border-none bg-g text-white bg-[#3E363F] hover:bg-success  h-auto flex flex-row">
-              <img src={settingico} alt="createico" className="w-5 mx-5" />
-              Settings{" "}
-            </button>{" "}
+          <div className="dropdown dropdown-end ">
+            <label tabIndex={0} className="  text-white hover:bg-black">
+              <img src={profileico} alt="profile" width={30} className="mt-2" />
+            </label>
+            <ul
+              tabIndex={0}
+              className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52"
+            >
+              <li onClick={logoutHandler}>
+                <p className="hover:bg-red-600">→ Logout</p>
+              </li>
+              <li className="hover:bg-accent">
+                <Link to="/profile">⚙️ Settings</Link>
+              </li>
+            </ul>
           </div>
-          <button
-            type="button"
-            className="btn bg-red-700 hover:bg-red-800"
-            onClick={logoutHandler}
-          >
-            Logout
-          </button>
         </div>
       </div>
     </>

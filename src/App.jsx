@@ -10,6 +10,7 @@ import ProtectedLogin from "./components/protectedroutes/protected-login";
 import BoardFeat from "./components/Pages/Board";
 import PostExplore from "./components/Pages/PostExplore";
 import BoardOP from "./components/Pages/BoardOP";
+import Profile from "./components/Pages/Profile";
 
 const App = () => {
   // useEffect(() => {
@@ -44,6 +45,7 @@ const App = () => {
             </ProtectedLogin>
           }
         ></Route>
+        <Route path="/profile" element={<Profile />}></Route>
         <Route path="/board-list" element={<BoardOP />}></Route>
         <Route path="/postexplore" element={<PostExplore />}></Route>
         <Route path="/signup" element={<SignUp />}></Route>
