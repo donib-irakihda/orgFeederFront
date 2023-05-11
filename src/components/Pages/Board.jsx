@@ -27,7 +27,7 @@ const BoardFeat = () => {
         <div className="mx-4 w-2/6">
           <CreatePost />
         </div>
-        <div className="w-4/6 mx-4">
+        <div className="w-4/6 mx-8">
           {posts?.length > 0
             ? posts.map((post, index) => <Posts post={post} key={index} />)
             : "NO POSTS"}

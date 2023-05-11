@@ -35,7 +35,7 @@ const CreatePost = () => {
   return (
     <div>
       <ToastContainer theme="colored" autoClose={3000} />
-      <div className="card w-90 bg-base-100 shadow-xl">
+      <div className="card w-[400px] bg-base-100 shadow-md">
         <div className="card-body">
           <h2 className="card-title">Create Post</h2>
           <hr />
@@ -51,12 +51,16 @@ const CreatePost = () => {
             type="email"
             onChange={(e) => setEmail(e.target.value)}
           />{" "}
-          <InputField
+          <h2 className="font-semibold">Description</h2>
+          <textarea
+            name=""
+            id=""
+            rows="5"
+            className="border rounded-md w-full mb-0"
             placeholder="Descrition About your Post"
-            name="description"
             type="text"
             onChange={(e) => setDesc(e.target.value)}
-          />{" "}
+          ></textarea>
           <div className="flex flex-row">
             <div className="mx-3">
               <h4 className="mb-1 ml-2">Status</h4>

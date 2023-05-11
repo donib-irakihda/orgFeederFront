@@ -4,6 +4,7 @@ import updateico from "../../assets/edit.svg";
 import deleteico from "../../assets/delete.svg";
 import { deleteOrg } from "../../axios/axios";
 import { useNavigate } from "react-router-dom";
+import blueico from "../../assets/blueprintico.png";
 
 const DropMenu = ({ setToggle, setOrgId, org }) => {
   // console.log("orgid", org._id);
@@ -37,17 +38,17 @@ const DropMenu = ({ setToggle, setOrgId, org }) => {
           </li>
           <li onClick={() => setOrgId(org._id)}>
             <a
-              href="#deleteModal"
+              name="#deleteModal"
               className="btn w-fit border-none bg-slate-100 hover:bg-success"
             >
               <img src={deleteico} className="w-5" alt="deleteico" /> Delete
             </a>
           </li>
-          <li
-            className="btn text-slate-500 border-none bg-slate-100 hover:bg-success"
-            onClick={() => boardHandler()}
-          >
-            Board
+          <li onClick={() => boardHandler()}>
+            <a className="btn w-fit border-none bg-slate-100 hover:bg-success">
+              <img src={blueico} alt="" className="w-5" />
+              Board
+            </a>
           </li>
         </ul>
       </div>
