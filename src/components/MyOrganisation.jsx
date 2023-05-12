@@ -17,8 +17,6 @@ const MyOrganisation = () => {
           const res = await orgByUser();
           setOrgs(res.data.org);
           setToggle(false);
-          // console.log("first", toggle);
-          // console.log(res.data.org);
         } catch (err) {
           err.response.data.errors
             ? toast.error(err.response.data.errors[0].msg)
@@ -37,7 +35,7 @@ const MyOrganisation = () => {
           <thead className="text-xs text-gray-700 uppercase bg-slate-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
               <th scope="col" className="px-6 py-3">
-                {/* {orgs[0].name} */}Organisations Name
+                Organisations Name
               </th>
               <th scope="col" className="px-6 py-3">
                 Website

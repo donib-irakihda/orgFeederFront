@@ -9,7 +9,7 @@ const DeleteModal = ({ id, setToggle }) => {
       const res = await deleteOrg({ id });
       if (res.status === 200) {
         toast.success(res.data.message);
-        console.log("deleted", id);
+        // console.log("deleted", id);
         setToggle(true);
       }
     } catch (err) {

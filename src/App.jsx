@@ -9,7 +9,7 @@ import ProtectedRoutes from "./components/protectedroutes/protected-routes";
 import ProtectedLogin from "./components/protectedroutes/protected-login";
 import BoardFeat from "./components/Pages/Board";
 import PostExplore from "./components/Pages/PostExplore";
-import BoardOP from "./components/Pages/BoardOP";
+import BoardList from "./components/Pages/BoardList";
 import Profile from "./components/Pages/Profile";
 
 const App = () => {
@@ -46,7 +46,7 @@ const App = () => {
           }
         ></Route>
         <Route path="/profile" element={<Profile />}></Route>
-        <Route path="/board-list" element={<BoardOP />}></Route>
+        <Route path="/board-list" element={<BoardList />}></Route>
         <Route path="/postexplore" element={<PostExplore />}></Route>
         <Route path="/signup" element={<SignUp />}></Route>
         <Route path="/forgotPW" element={<ForgotPW />}></Route>

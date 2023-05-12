@@ -17,7 +17,7 @@ const PostExplore = () => {
     setCommentId,
     editComment,
     toggleEdit,
-    setToogleEdit,
+    setToggleEdit,
     commentPostHandler,
     handleEditComment,
     voteHandler,
@@ -125,7 +125,7 @@ const PostExplore = () => {
                               <button
                                 className="bg-black text-white mt-2 rounded-md py-1 px-4"
                                 onClick={() => {
-                                  setToogleEdit(false);
+                                  setToggleEdit(false);
                                   handleEditComment(comment._id);
                                 }}
                               >
@@ -146,7 +146,7 @@ const PostExplore = () => {
                             >
                               <li
                                 onClick={() => {
-                                  setToogleEdit(true);
+                                  setToggleEdit(true);
                                   setCommentId(comment._id);
                                   editComment.current = comment.comment;
                                 }}

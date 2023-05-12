@@ -1,7 +1,7 @@
 import React from "react";
 import CreateModal from "./Modals/CreateModal";
 import createico from "../assets/create.svg";
-import settingico from "../assets/icons8-settings.svg";
+
 import { Link } from "react-router-dom";
 import profileico from "../assets/profileico.svg";
 
@@ -20,17 +20,18 @@ const Navbar = () => {
 
         <div className="flex flex-row">
           {" "}
-          {window.location.href == "http://localhost:5173/" ? (
+          {window.location.href == "http://localhost:5173/" ||
+          "http://localhost:5173/#" ? (
             <div>
               {/* The button to open modal */}
               <label
                 htmlFor="modal"
                 className="btn border-none w-full bg-[#3E363F]  text-white mr-6 p-0 h-auto flex flex-row"
               >
-                <a href="#createorg">
+                <a href="#createorg" className="flex flex-row">
                   <img src={createico} alt="createico" className="w-5 mx-5" />
+                  Create Organisation{" "}
                 </a>
-                Create Organisation{" "}
               </label>
             </div>
           ) : (
@@ -48,7 +49,7 @@ const Navbar = () => {
                 <p className="hover:bg-red-600">→ Logout</p>
               </li>
               <li className="hover:bg-accent">
-                <Link to="/profile">⚙️ Settings</Link>
+                <Link to="/profile">⚙️ Setting</Link>
               </li>
             </ul>
           </div>

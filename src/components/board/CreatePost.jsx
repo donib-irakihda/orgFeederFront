@@ -3,7 +3,7 @@ import InputField from "../Shared/InputFiled";
 import { createPost } from "../../axios/axiosBoard";
 import { ToastContainer, toast } from "react-toastify";
 
-const CreatePost = () => {
+const CreatePost = ({ setToggle }) => {
   const [title, setTitle] = useState("");
   const [email, setEmail] = useState("");
   const [desc, setDesc] = useState("");
@@ -22,7 +22,10 @@ const CreatePost = () => {
       });
       if (res.status === 201) {
         toast.success(res.data.message);
-        console.log(res.data);
+        setToggle(true);
+        setTitle("");
+        setEmail("");
+        setDesc("");
       }
     } catch (err) {
       //   console.log("error", err.response);
@@ -44,11 +47,13 @@ const CreatePost = () => {
             name="title"
             type="text"
             onChange={(e) => setTitle(e.target.value)}
+            value={title}
           />{" "}
           <InputField
             placeholder="Jhon@google.com"
             name="email"
             type="email"
+            value={email}
             onChange={(e) => setEmail(e.target.value)}
           />{" "}
           <h2 className="font-semibold">Description</h2>
@@ -59,6 +64,7 @@ const CreatePost = () => {
             className="border rounded-md w-full mb-0"
             placeholder="Descrition About your Post"
             type="text"
+            value={desc}
             onChange={(e) => setDesc(e.target.value)}
           ></textarea>
           <div className="flex flex-row">
