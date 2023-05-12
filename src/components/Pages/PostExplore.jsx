@@ -47,13 +47,34 @@ const PostExplore = () => {
               </p>
               <div className="flex flex-row mr-4 mt-4">
                 <h2 className="mr-1">Status :</h2>
-                <p className="badge bg-orange-300 font-normal text-black px-4 py-3 mr-4">
-                  {post.status ?? ""}
-                </p>
+                {post.status == "open" ? (
+                  <p className="badge bg-blue-300  text-[#141414] border-none font-normal px-4 py-3 mr-4">
+                    {post.status ?? ""}
+                  </p>
+                ) : post.status == "inProgress" ? (
+                  <p className="badge bg-purple-300 font-normal text-[#141414] border-none px-4 py-3 mr-4">
+                    {post.status ?? ""}
+                  </p>
+                ) : (
+                  <p className="badge bg-green-300 font-normal text-[#141414] border-none px-4 py-3 mr-4">
+                    {post.status ?? ""}
+                  </p>
+                )}
+
                 <h2 className="mr-1">Priority :</h2>
-                <p className="badge bg-orange-300 font-normal text-black px-4 py-3 mr-4">
-                  {post.priority ?? ""}
-                </p>
+                {post.priority == "low" ? (
+                  <p className="badge bg-gray-300 font-normal text-[#141414] border-none px-4 py-3 mr-4">
+                    {post.priority ?? ""}
+                  </p>
+                ) : post.priority == "medium" ? (
+                  <p className="badge bg-yellow-300 font-normal text-[#141414] border-none px-4 py-3 mr-4">
+                    {post.priority ?? ""}
+                  </p>
+                ) : (
+                  <p className="badge bg-red-300 font-normal text-[#141414] border-none px-4 py-3 mr-4">
+                    {post.priority ?? ""}
+                  </p>
+                )}
               </div>
               <p className="opacity-80 mt-8 ">{post.description ?? ""}</p>
             </div>{" "}
@@ -123,7 +144,7 @@ const PostExplore = () => {
                               />
                               <br />
                               <button
-                                className="bg-black text-white mt-2 rounded-md py-1 px-4"
+                                className="bg-black text-white border-none mt-2 rounded-md py-1 px-4"
                                 onClick={() => {
                                   setToggleEdit(false);
                                   handleEditComment(comment._id);

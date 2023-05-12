@@ -56,14 +56,14 @@ const UpdateModal = ({ id, setToggle }) => {
             onChange={(e) => setAddress(e.target.value)}
           />{" "}
           <p className="my-3 text-semibold">
-            Please Review All the Infrmation Before Confirming
+            Please Review All the Information Before Confirming
           </p>
           <div className="modal-action">
-            <a href="#" className="btn bg-green-500 hover:bg-green-700">
-              <button onClick={() => onUpdateHandler(id)}>YES</button>
-            </a>
-            <a href="#" className="btn ">
+            <a href="#" className="btn w-[5.5rem] ">
               NO
+            </a>
+            <a href="#" className="btn w-[5.5rem]">
+              <button onClick={() => onUpdateHandler(id)}>YES</button>
             </a>
           </div>
         </div>

@@ -25,13 +25,13 @@ const DropMenu = ({ setToggle, setOrgId, org }) => {
 
         <ul
           tabIndex={0}
-          className="dropdown-content menu p-2 shadow bg-slate-100 rounded-box w-36 relative"
+          className="dropdown-content menu p-2 shadow bg-slate-100 rounded-box w-32 relative"
         >
           {" "}
           <li onClick={() => setOrgId(org._id)}>
             <a
               href="#updateModal"
-              className="btn w-fit border-none bg-slate-100 hover:bg-success"
+              className="btn  w-fit border-none bg-slate-100 hover:bg-success"
             >
               🔏 Update
             </a>

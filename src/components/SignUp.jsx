@@ -51,7 +51,7 @@ const SignUp = () => {
         </div>
         <div className=" justify-center flex-1 items-center max-w-[35%] p-5">
           <div>
-            <h1 className="text-4xl mb-5 font-normal">
+            <h1 className="text-4xl mb-5 ml-2 font-normal">
               Let's Start,{" "}
               <span className="text-success2">with Registration!</span>
             </h1>
@@ -92,8 +92,8 @@ const SignUp = () => {
             }}
             pattern="[0-9]+"
           /> */}
-          <p className="text-sm opacity-60 mt-3">
-            By creating an account or signing you agree to ourTerms and
+          <p className="text-sm opacity-60 mt-2 ml-2">
+            By creating an account or signing you agree to our Terms and
             Conditions
           </p>
           <button
@@ -102,9 +102,9 @@ const SignUp = () => {
           >
             <span className=" font-semibold text-xl text-white">Signup</span>
           </button>
-          <p className="flex justify-center ">
+          <p className="flex justify-center mt-2 ">
             Already have an account?<span> </span>
-            <Link to="/login" className="hover:underline text-success2">
+            <Link to="/login" className="underline hover:text-success2">
               Log in
             </Link>{" "}
           </p>

@@ -53,15 +53,15 @@ const CreateBoardModal = ({ setToggle }) => {
             <option value={"feedback"}>Feedback</option>
           </select>
           <div className="modal-action">
+            <a href="#" className="btn w-[5.5rem] ">
+              NO
+            </a>
             <a
               href="#"
-              className="btn bg-success2"
+              className="btn w-[5.5rem] "
               onClick={() => createBoardHandler()}
             >
               YES
-            </a>
-            <a href="#" className="btn bg-gray-600">
-              NO
             </a>
           </div>
         </div>

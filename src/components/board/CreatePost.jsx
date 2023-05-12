@@ -61,7 +61,7 @@ const CreatePost = ({ setToggle }) => {
             name=""
             id=""
             rows="5"
-            className="border rounded-md w-full mb-0"
+            className="border rounded-md w-full mb-0 p-4"
             placeholder="Descrition About your Post"
             type="text"
             value={desc}

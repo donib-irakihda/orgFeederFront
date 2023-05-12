@@ -45,7 +45,14 @@ const App = () => {
             </ProtectedLogin>
           }
         ></Route>
-        <Route path="/profile" element={<Profile />}></Route>
+        <Route
+          path="/profile"
+          element={
+            <ProtectedRoutes>
+              <Profile />
+            </ProtectedRoutes>
+          }
+        ></Route>
         <Route path="/board-list" element={<BoardList />}></Route>
         <Route path="/postexplore" element={<PostExplore />}></Route>
         <Route path="/signup" element={<SignUp />}></Route>

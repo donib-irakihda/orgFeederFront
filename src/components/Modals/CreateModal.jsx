@@ -3,7 +3,7 @@ import InputField from "../Shared/InputFiled";
 import { createOrg } from "../../axios/axios";
 import { ToastContainer, toast } from "react-toastify";
 
-const CreateModal = ({ toogleCmodal }) => {
+const CreateModal = ({ setToggle }) => {
   const [name, setName] = useState("");
   const [web, setWeb] = useState("");
   const [phone, setPhone] = useState("");
@@ -18,6 +18,7 @@ const CreateModal = ({ toogleCmodal }) => {
       });
       // console.log(res);
       toast.success("Organisations Created Succesfully");
+      setToggle(true);
     } catch (err) {
       err.response.data.errors
         ? toast.error(err.response.data.errors[0].msg)
@@ -61,11 +62,11 @@ const CreateModal = ({ toogleCmodal }) => {
             onChange={(e) => setAddress(e.target.value)}
           />{" "}
           <div className="modal-action">
-            <a href="#" className="btn bg-success2" onClick={onSubmitHandler}>
-              Create
-            </a>
-            <a href="#" className="btn bg-gray-600">
+            <a href="#" className="btn w-[5.5rem]">
               NO
+            </a>
+            <a href="#" className="btn w-[5.5rem]" onClick={onSubmitHandler}>
+              Create
             </a>
           </div>
         </div>
