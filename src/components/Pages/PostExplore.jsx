@@ -1,76 +1,28 @@
-import React from "react";
+import React, { useRef } from "react";
 import Dashboard from "../Dashboard";
-import { useEffect, useState } from "react";
-import {
-  getPostId,
-  patchComment,
-  postcomment,
-  votePost,
-} from "../../axios/axiosBoard";
 import { ToastContainer, toast } from "react-toastify";
 import DeleteComment from "../Modals/DeleteComment";
 import moment from "moment";
 import voteico from "../../assets/uparrow.svg";
 import commentico from "../../assets/comment.svg";
 import avatar_man from "../../assets/avatar_man.svg";
+import useComment from "../../hooks/useComment";
 
 const PostExplore = () => {
-  const [post, setPost] = useState([]);
-  useEffect(() => {
-    try {
-      return async () => {
-        const res = await getPostId(localStorage.getItem("postID"));
-        if (res.status === 200) {
-          // console.log(res.data.post);
-          setPost(res.data.post);
-        }
-      };
-    } catch (err) {
-      console.log(err.response);
-    }
-  }, []);
-
-  const [comment, setComment] = useState();
-  const [commentId, setCommentId] = useState("");
-  const [editComment, setEditComment] = useState("sad boy");
-  const [toggleEdit, setToogleEdit] = useState(false);
-
-  const commentPostHandler = async () => {
-    try {
-      const res = await postcomment({
-        comment,
-        post: localStorage.getItem("postID"),
-      });
-
-      res ? console.log(res) : "dasd";
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  const handleEditComment = async () => {
-    try {
-      const res = await patchComment({ id: commentId, comment: editComment });
-      console.log(res);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  const voteHandler = async () => {
-    try {
-      const id = localStorage.getItem("postID");
-      const res = await votePost({ id });
-      console.log(res.data);
-      if (res.data?.message) {
-        toast.success(res.data.message);
-      }
-    } catch (error) {
-      // console.log(error.response.data.error);
-      toast.error(error.response.data.error);
-    }
-  };
-
+  const {
+    post,
+    comment,
+    setComment,
+    commentId,
+    setCommentId,
+    editComment,
+    toggleEdit,
+    setToogleEdit,
+    commentPostHandler,
+    handleEditComment,
+    voteHandler,
+    toast,
+  } = useComment();
   return (
     <Dashboard>
       <ToastContainer theme="colored" autoClose={3000} />
@@ -91,18 +43,19 @@ const PostExplore = () => {
             <div className="mb-8">
               <h1 className="font-semibold text-3xl">{post.title}</h1>{" "}
               <p className="text-sm font-normal italic">
-                created at {moment(post.createdAt).fromNow()}
+                created at {moment(post.createdAt ?? "").fromNow()}
               </p>
               <div className="flex flex-row mr-4 mt-4">
-                <h2 className="mr-4">Status :</h2>
+                <h2 className="mr-1">Status :</h2>
                 <p className="badge bg-orange-300 font-normal text-black px-4 py-3 mr-4">
-                  {post.status}
+                  {post.status ?? ""}
                 </p>
+                <h2 className="mr-1">Priority :</h2>
                 <p className="badge bg-orange-300 font-normal text-black px-4 py-3 mr-4">
-                  {post.priority}
+                  {post.priority ?? ""}
                 </p>
               </div>
-              <p className="opacity-80 mt-8 ">{post.description}</p>
+              <p className="opacity-80 mt-8 ">{post.description ?? ""}</p>
             </div>{" "}
             <p className="text-2xl mb-2"> Comment Here</p>{" "}
             <div>
@@ -158,18 +111,23 @@ const PostExplore = () => {
                           </span>
                         </p>
                         <div className="flex justify-between">
-                          {comment._id == commentId ? (
+                          {comment._id == commentId && toggleEdit ? (
                             <div>
                               <input
-                                placeholder={comment.comment}
                                 size={80}
-                                onChange={() => setEditComment(e.target.value)}
+                                onChange={(e) =>
+                                  (editComment.current = e.target.value)
+                                }
                                 className="border-[1px] rounded-md p-2 border-slate-600"
+                                defaultValue={editComment.current}
                               />
                               <br />
                               <button
                                 className="bg-black text-white mt-2 rounded-md py-1 px-4"
-                                onClick={() => handleEditComment(comment._id)}
+                                onClick={() => {
+                                  setToogleEdit(false);
+                                  handleEditComment(comment._id);
+                                }}
                               >
                                 Done
                               </button>
@@ -190,6 +148,7 @@ const PostExplore = () => {
                                 onClick={() => {
                                   setToogleEdit(true);
                                   setCommentId(comment._id);
+                                  editComment.current = comment.comment;
                                 }}
                               >
                                 <a>⚒️ Edit</a>
