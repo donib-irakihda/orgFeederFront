@@ -4,7 +4,7 @@ import { useState } from "react";
 import { createBoard } from "../../axios/axiosBoard";
 import { ToastContainer, toast } from "react-toastify";
 
-const CreateBoard = () => {
+const CreateBoardModal = ({ setToggle }) => {
   const [name, setName] = useState("");
   const [boardType, setBoardType] = useState("bugReport");
   const [desc, setDesc] = useState("");
@@ -17,8 +17,8 @@ const CreateBoard = () => {
         boardType,
         organization: localStorage.getItem("orgid"),
       });
+      setToggle(true);
       toast.success("Board Created Succesfully");
-      // console.log("Dasdas", res);
     } catch (error) {
       console.log(error);
     }
@@ -70,4 +70,4 @@ const CreateBoard = () => {
   );
 };
 
-export default CreateBoard;
+export default CreateBoardModal;

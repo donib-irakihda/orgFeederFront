@@ -1,9 +1,16 @@
 import { useEffect, useRef, useState } from "react";
-import { getPostId, patchComment, postcomment } from "../axios/axiosBoard";
+import {
+  getPostId,
+  patchComment,
+  postcomment,
+  votePost,
+} from "../axios/axiosBoard";
 import { ToastContainer, toast } from "react-toastify";
 
 const useComment = () => {
   const [post, setPost] = useState({});
+  const [toggle, setToggle] = useState(false);
+  const [toggleEdit, setToggleEdit] = useState(false);
   useEffect(() => {
     try {
       return async () => {
@@ -11,18 +18,19 @@ const useComment = () => {
         if (res.status === 200) {
           // console.log(res.data.post);
           setPost(res.data.post);
+          setToggleEdit(false);
+          setToggle(false);
         }
       };
     } catch (err) {
       console.log(err.response);
     }
-  }, []);
+  }, [toggle]);
 
   const [comment, setComment] = useState();
   const [commentId, setCommentId] = useState("");
   // const [editComment, setEditComment] = useState(" ");
   const editComment = useRef(null);
-  const [toggleEdit, setToogleEdit] = useState(false);
 
   const commentPostHandler = async () => {
     try {
@@ -30,8 +38,8 @@ const useComment = () => {
         comment,
         post: localStorage.getItem("postID"),
       });
-
-      res ? console.log(res) : "da sssd";
+      toast.success(res.data.message);
+      res.status == 200 && setToggle(true);
     } catch (error) {
       console.log(error);
     }
@@ -46,6 +54,7 @@ const useComment = () => {
       });
       // console.log(res.data.message);
       toast.success(res.data.message);
+      setToggle(true);
     } catch (error) {
       console.log(error);
     }
@@ -58,10 +67,11 @@ const useComment = () => {
       console.log(res.data);
       if (res.data?.message) {
         toast.success(res.data.message);
+        setToggle(true);
       }
     } catch (error) {
       // console.log(error.response.data.error);
-      toast.error(error.response.data.error);
+      console.log(error);
     }
   };
   return {
@@ -73,7 +83,7 @@ const useComment = () => {
     setCommentId,
     editComment,
     toggleEdit,
-    setToogleEdit,
+    setToggleEdit,
     commentPostHandler,
     handleEditComment,
     voteHandler,

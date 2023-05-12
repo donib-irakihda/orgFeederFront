@@ -2,19 +2,21 @@ import React from "react";
 import Dashboard from "../Dashboard";
 import { useEffect } from "react";
 import { getBoard } from "../../axios/axiosBoard";
-import CreateBoard from "../Modals/CreateBoardModal";
+import CreateBoardModal from "../Modals/CreateBoardModal";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const BoardOP = () => {
+const BoardList = () => {
   const [boards, setBoard] = useState([]);
   const navigate = useNavigate();
+  const [toggle, setToggle] = useState(false);
 
   const boardHandler = (id) => {
     // console.log("dasdasd", id);
     localStorage.setItem("boardID", id);
     navigate("/board");
   };
+  console.log(toggle);
 
   useEffect(() => {
     try {
@@ -23,12 +25,13 @@ const BoardOP = () => {
         if (res.status === 200) {
           console.log(res.data.boards);
           setBoard(res.data.boards);
+          setToggle(false);
         }
       };
     } catch (error) {
       console.log(error);
     }
-  }, []);
+  }, [toggle]);
 
   return (
     <Dashboard>
@@ -77,9 +80,9 @@ const BoardOP = () => {
             : " "}
         </div>
       </main>
-      <CreateBoard />
+      <CreateBoardModal setToggle={setToggle} />
     </Dashboard>
   );
 };
 
-export default BoardOP;
+export default BoardList;

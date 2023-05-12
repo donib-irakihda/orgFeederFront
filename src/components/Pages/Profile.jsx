@@ -14,6 +14,7 @@ const Profile = () => {
           const res = await getUserById();
           // console.log(res.data.user);
           setUser(res.data.user);
+          setToggle(false);
         } catch (err) {
           console.log(err);
         }
@@ -30,7 +31,8 @@ const Profile = () => {
   const handleEdit = async () => {
     try {
       const res = await updateProfile({ fullName, email, username });
-      console.log(res);
+      toast.success(res.data.message);
+      setToggle(true);
     } catch (error) {
       console.log(error);
     }
@@ -61,7 +63,13 @@ const Profile = () => {
                   >
                     Cancel
                   </button>
-                  <button className="btn" onClick={() => handleEdit()}>
+                  <button
+                    className="btn"
+                    onClick={() => {
+                      handleEdit();
+                      setEditToggle(false);
+                    }}
+                  >
                     Save
                   </button>
                 </div>
