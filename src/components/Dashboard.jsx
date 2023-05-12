@@ -5,7 +5,7 @@ import Footer from "./Footer";
 
 const Dashboard = ({ children }) => {
   return (
-    <div className="min-h-[100vh]">
+    <div className="relative min-h-[100vh]">
       <Navbar />
       <div className="flex flex-row bg-white">{children}</div>
 

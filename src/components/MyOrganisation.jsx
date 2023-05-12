@@ -17,7 +17,7 @@ const MyOrganisation = () => {
           const res = await orgByUser();
           setOrgs(res.data.org);
           setToggle(false);
-          console.log("first", toggle);
+          // console.log("first", toggle);
           // console.log(res.data.org);
         } catch (err) {
           err.response.data.errors

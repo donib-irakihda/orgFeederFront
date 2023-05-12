@@ -33,7 +33,7 @@ const DropMenu = ({ setToggle, setOrgId, org }) => {
               href="#updateModal"
               className="btn w-fit border-none bg-slate-100 hover:bg-success"
             >
-              <img src={updateico} className="w-5" alt="" /> Update
+              <img src={updateico} className="w-5" alt="updateico" /> Update
             </a>
           </li>
           <li onClick={() => setOrgId(org._id)}>

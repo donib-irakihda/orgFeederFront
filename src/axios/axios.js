@@ -6,6 +6,7 @@ const api = axios.create({
   baseURL: baseURL,
 });
 
+// users
 export const signup = async (data) =>
   api.post("user/register", data, {
     headers: {
@@ -32,6 +33,27 @@ export const resetPW = async (data) =>
     },
   });
 
+export const getUserById = async () =>
+  api.get("/user/get-user-by-id", {
+    headers: {
+      "Content-type": "application/json",
+      Authorization: `Bearer ${localStorage.getItem("token")}`,
+    },
+  });
+
+export const updateProfile = async ({ fullName, email, username }) =>
+  api.patch(
+    `/user/update-user`,
+    { fullName, email, username },
+    {
+      headers: {
+        "Content-type": "application/json",
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    }
+  );
+
+//  Organisations
 export const createOrg = async (data) =>
   api.post("/organization/create-organization", data, {
     headers: {
