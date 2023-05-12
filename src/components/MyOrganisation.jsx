@@ -4,6 +4,8 @@ import DropMenu from "./Shared/DropMenu";
 import { ToastContainer, toast } from "react-toastify";
 import DeleteModal from "./Modals/DeleteModal";
 import UpdateModal from "./Modals/UpdateModal";
+import CreateModal from "./Modals/CreateModal";
+import createico from "../assets/create.svg";
 
 const MyOrganisation = () => {
   const [orgs, setOrgs] = useState([]);
@@ -29,8 +31,18 @@ const MyOrganisation = () => {
   return (
     <>
       <ToastContainer theme="colored" autoClose={3000} />
+
       <div className="relative overflow-x-auto w-11/12 mx-10">
         <h1 className="text-3xl text-center my-5">MY ORGANIZATION</h1>
+        <div>
+          {/* The button to open modal */}
+          <label
+            htmlFor="modal"
+            className="btn border-none w-fit bg-[#3E363F]  text-white mb-8 p-4 h-auto flex flex-row"
+          >
+            <a href="#createorg">Create Organisation </a>
+          </label>
+        </div>
         <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
           <thead className="text-xs text-gray-700 uppercase bg-slate-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
@@ -78,6 +90,7 @@ const MyOrganisation = () => {
         </table>
         <DeleteModal id={orgId} setToggle={setToggle} />
         <UpdateModal id={orgId} setToggle={setToggle} />
+        <CreateModal setToggle={setToggle} />
       </div>
     </>
   );

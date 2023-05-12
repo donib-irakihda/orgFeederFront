@@ -32,11 +32,11 @@ const DeleteModal = ({ id, setToggle }) => {
             You will not be able to retrive it after you delete
           </p>
           <div className="modal-action">
-            <a href="#" className="btn bg-success2">
-              <button onClick={onDeleteHandler}>YES</button>
-            </a>
-            <a href="#" className="btn bg-gray-600">
+            <a href="#" className="btn w-[5.5rem]">
               NO
+            </a>
+            <a href="#" className="btn w-[5.5rem]">
+              <button onClick={onDeleteHandler}>YES</button>
             </a>
           </div>
         </div>

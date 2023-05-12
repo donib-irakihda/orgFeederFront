@@ -40,7 +40,7 @@ const Login = () => {
       <div className="flex justify-center items-center h-[100vh] mx-10">
         <div className=" w-full h-[100vh] flex items-center  justify-center ml-5">
           <div>
-            <h1 className="text-4xl mb-5 font-normal">
+            <h1 className="text-4xl mb-5 font-normal ml-3">
               Hey,<span className="text-success2"> Welcome</span> back.
             </h1>
             <InputField
@@ -55,7 +55,7 @@ const Login = () => {
               type="password"
               onChange={(e) => setPassword(e.target.value)}
             />{" "}
-            <div className="flex flex-row justify-between">
+            <div className="flex flex-row justify-between ml-2">
               <div>
                 {" "}
                 <input
@@ -68,7 +68,7 @@ const Login = () => {
               </div>
 
               <p className="font-semibold">
-                <Link to="/forgotPW" className="hover:underline text-success">
+                <Link to="/forgotPW" className="underline hover:text-success ">
                   Forgot Password ?
                 </Link>{" "}
               </p>
@@ -79,9 +79,12 @@ const Login = () => {
             >
               <span className=" font-semibold text-xl text-white">Login</span>
             </button>
-            <p>
+            <p className="ml-2 mt-2">
               New on our platform?<span> </span>
-              <Link to="/signup" className="hover:underline text-success">
+              <Link
+                to="/signup"
+                className="underline hover:text-success text-bold"
+              >
                 Create an account
               </Link>{" "}
             </p>

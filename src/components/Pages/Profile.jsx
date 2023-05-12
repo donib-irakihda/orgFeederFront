@@ -51,20 +51,19 @@ const Profile = () => {
           </div>
           <div className="flex flex-row justify-between">
             <div className="mt-4">
-              <h1 className="text-2xl">Profile</h1>{" "}
+              <h1 className="text-3xl underline decoration-solid">Profile</h1>{" "}
             </div>
-
             <div>
               {editToggle ? (
                 <div>
                   <button
-                    className="btn mr-4"
+                    className="btn w-[5.5rem] mr-4"
                     onClick={() => setEditToggle(false)}
                   >
                     Cancel
                   </button>
                   <button
-                    className="btn"
+                    className="btn w-[5.5rem]"
                     onClick={() => {
                       handleEdit();
                       setEditToggle(false);
@@ -74,7 +73,10 @@ const Profile = () => {
                   </button>
                 </div>
               ) : (
-                <button className="btn" onClick={() => setEditToggle(true)}>
+                <button
+                  className="btn w-[5.5rem]"
+                  onClick={() => setEditToggle(true)}
+                >
                   Edit
                 </button>
               )}
@@ -83,10 +85,10 @@ const Profile = () => {
 
           {/* Details */}
           <div className="mt-12">
-            <p className="font-normal text-xl ">
+            <p className="font-normal underline-offset-auto text-xl ">
               Update your profile and personal details
             </p>
-            <div className="grid grid-cols-2 mb-4 mt-8">
+            <div className="grid grid-cols-2 mb-4 mt-4">
               <h2 className="">Full Name</h2>
               {editToggle ? (
                 <input

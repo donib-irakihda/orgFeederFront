@@ -12,31 +12,12 @@ const Navbar = () => {
   };
   return (
     <>
-      <CreateModal />
       <div className="w-full text-center py-4 bg-[#3E363F] flex flex-row justify-between px-8">
         <Link className="text-white text-3xl" to="/">
           NAVBAR 🔥
         </Link>
 
         <div className="flex flex-row">
-          {" "}
-          {window.location.href == "http://localhost:5173/" ||
-          "http://localhost:5173/#" ? (
-            <div>
-              {/* The button to open modal */}
-              <label
-                htmlFor="modal"
-                className="btn border-none w-full bg-[#3E363F]  text-white mr-6 p-0 h-auto flex flex-row"
-              >
-                <a href="#createorg" className="flex flex-row">
-                  <img src={createico} alt="createico" className="w-5 mx-5" />
-                  Create Organisation{" "}
-                </a>
-              </label>
-            </div>
-          ) : (
-            ""
-          )}
           <div className="dropdown dropdown-end ">
             <label tabIndex={0} className="  text-white hover:bg-black">
               <img src={profileico} alt="profile" width={30} className="mt-2" />
@@ -48,7 +29,7 @@ const Navbar = () => {
               <li onClick={logoutHandler}>
                 <p className="hover:bg-red-600">→ Logout</p>
               </li>
-              <li className="hover:bg-accent">
+              <li>
                 <Link to="/profile">⚙️ Setting</Link>
               </li>
             </ul>

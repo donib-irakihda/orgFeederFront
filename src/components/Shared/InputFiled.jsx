@@ -19,7 +19,7 @@ const InputField = ({
       </label>
       <input
         type={type}
-        className=" w-90 bg-gray-50 border ring-1 focus:ring-red-500 hover:border-success2 focus:ring-1 rounded-md px-1 py-1"
+        className=" w-90 bg-gray-50 border ring-1 focus:ring-red-500 hover:border-success2 focus:ring-1 rounded-md px-4 py-2"
         id={id}
         name={name}
         placeholder={placeholder}

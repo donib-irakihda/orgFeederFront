@@ -26,11 +26,11 @@ const DeleteCommentModal = ({ id, setToggle }) => {
             Comment will be Deleted Permanently
           </p>
           <div className="modal-action">
-            <a href="#" className="btn bg-success2" onClick={onDeleteHandler}>
-              <button>YES</button>
-            </a>
-            <a href="#" className="btn bg-gray-600">
+            <a href="#" className="btn w-[5.5rem]">
               NO
+            </a>
+            <a href="#" className="btn w-[5.5rem]" onClick={onDeleteHandler}>
+              <button>YES</button>
             </a>
           </div>
         </div>
