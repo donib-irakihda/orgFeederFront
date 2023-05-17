@@ -3,7 +3,7 @@ import axios from "axios";
 const baseURL = "https://orgfeeder.onrender.com/orgFeeder/api/";
 
 const api = axios.create({
-  baseURL: ba
+  baseURL: baseURL)};
 
 export const createBoard = async (data) =>
   api.post("board/create-board", data, {
